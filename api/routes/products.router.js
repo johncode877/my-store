@@ -42,6 +42,8 @@ router.post('/',
   }
 );
 
+
+
 router.patch('/:id',
   validatorHandler(getProductSchema, 'params'),
   validatorHandler(updateProductSchema, 'body'),
@@ -52,9 +54,6 @@ router.patch('/:id',
       const product = await service.update(id, body);
       res.json(product);
     } catch (error) {
-      //res.status(404).json({
-      //  message: error.message
-      //});
       next(error);
     }
 });
