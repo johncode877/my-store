@@ -112,7 +112,7 @@ docker compose inspect <nombre_contenedor>
 docker-compose exec postgres bash
 root@342498c:/#psql -h localhost -d my_store -U test
 
--- Visualizar las descripcion de las tablas de la bd 
+-- Visualizar las estructura de las tablas de la bd 
 my_store=# \d+
 
 -- Salir del psql 
@@ -129,3 +129,6 @@ docker volume rm <nombre_volumen>
 -- Elimina volúmenes de contenedores que ya no existen
 docker volume prune
 
+-- Iniciar el servicio pgadmin 
+
+docker-compose up -d pgadmin
