@@ -2,6 +2,11 @@ const boom = require('@hapi/boom');
 
 const getConnection = require('../libs/postgres');
 
+// se ubica al modelo con el nombre 
+// definido en el atributo modelName
+// de la clase User 
+const {models} = require('./../libs/sequelize');
+
 class UsersService {
 
     constructor() { }
@@ -11,9 +16,11 @@ class UsersService {
     }
 
     async find() {
-        const client = await getConnection();
-        const rta = await client.query('SELECT * FROM tasks');
-        return rta.rows;
+        //const client = await getConnection();
+        //const rta = await client.query('SELECT * FROM tasks');
+        // return rta.rows;
+        const rta = await models.User.findAll();
+        return rta;        
     }
 
     async findOne(id) {

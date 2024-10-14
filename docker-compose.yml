@@ -22,10 +22,12 @@ services:
     env_file: '.env'
     environment:
        - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-       - PGADMIN_DEFAULT_PASSWORD=/run/secrets/pgadmin_password
+       #- PGADMIN_DEFAULT_PASSWORD=/run/secrets/pgadmin_password
+       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
     ports:
        - 5050:80   
-
+    #secrets:
+    #   - pgadmin_password
 secrets:
    db_password_ms:
      file: db_password_ms.txt
