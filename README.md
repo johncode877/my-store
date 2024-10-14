@@ -143,7 +143,12 @@ npm install pg
 
 npm i dotenv 
 
+# Usando ORM - Sequelize
 
+npm i --save sequelize 
+npm i --save pg-hstore
+  
+  
 
 
 ## Referencias 
@@ -151,4 +156,6 @@ npm i dotenv
 https://docs.docker.com/compose/how-tos/use-secrets/
 
 https://mgallego.gitlab.io/posts/docker-volumenes-de-datos/
+
+https://sequelize.org/
 
