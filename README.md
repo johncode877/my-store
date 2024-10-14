@@ -90,3 +90,42 @@ npm i cors
 
 # Despliegue de la solucion 
 
+-vercel 
+-render
+
+# Usando docker
+
+--Levantar el contenedor docker
+docker-compose up -d postgres 
+
+--Ver contenedores corriendo
+docker-compose ps
+
+--Dejar de correr el contenedor docker
+docker-compose down 
+
+
+-- Inspeccionar un contenedor 
+docker compose inspect <nombre_contenedor>
+
+-- Conectar al contenedor por terminal 
+docker-compose exec postgres bash
+root@342498c:/#psql -h localhost -d my_store -U test
+
+-- Visualizar las descripcion de las tablas de la bd 
+my_store=# \d+
+
+-- Salir del psql 
+my_store=# \q
+
+-- Visualizar los volumenes creados 
+
+docker volume ls 
+
+docker volume inspect <nombre_volumen>
+
+docker volume rm <nombre_volumen>
+
+-- Elimina volúmenes de contenedores que ya no existen
+docker volume prune
+

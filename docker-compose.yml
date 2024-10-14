@@ -1,0 +1,19 @@
+version: '3.3'
+
+services: 
+  postgres: 
+    image: 'postgres:13'
+    restart: always
+    env_file: '.env'
+    environment:
+       - POSTGRES_DB=${DB_NAME_MS}
+       - POSTGRES_USER=${DB_USER_MS}
+       - POSTGRES_PASSWORD=${DB_PASSWORD_MS}
+    ports:
+       - 5433:5432
+    # persiste la informacion en un volumen local
+    volumes:
+       - './postgres_data:/var/lib/postgresql/data'
+
+#volumes:
+#  postgres_data2:
