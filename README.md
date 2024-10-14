@@ -132,3 +132,10 @@ docker volume prune
 -- Iniciar el servicio pgadmin 
 
 docker-compose up -d pgadmin
+
+
+# Conectando desde Node 
+
+npm install pg
+
+
