@@ -139,3 +139,16 @@ docker-compose up -d pgadmin
 npm install pg
 
 
+# Instalando paquete dotenv
+
+npm i dotenv 
+
+
+
+
+## Referencias 
+
+https://docs.docker.com/compose/how-tos/use-secrets/
+
+https://mgallego.gitlab.io/posts/docker-volumenes-de-datos/
+
