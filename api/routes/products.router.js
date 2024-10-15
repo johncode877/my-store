@@ -32,7 +32,6 @@ router.get('/:id',
   }
 );
 
-
 router.post('/',
   validatorHandler(createProductSchema, 'body'),
   async (req, res) => {
@@ -41,8 +40,6 @@ router.post('/',
     res.status(201).json(newProduct);
   }
 );
-
-
 
 router.patch('/:id',
   validatorHandler(getProductSchema, 'params'),
