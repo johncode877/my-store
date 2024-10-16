@@ -134,7 +134,7 @@ docker volume prune
 docker-compose up -d pgadmin
 
 
-# Conectando desde Node 
+# Conectando a Postgres desde Node 
 
 npm install pg
 
@@ -148,7 +148,48 @@ npm i dotenv
 npm i --save sequelize 
 npm i --save pg-hstore
   
-  
+# Cambiando de base de datos 
+
+-- La gran ventaja de trabajar con 
+-- framework orm , ya que es independiente de 
+-- la base de datos 
+
+- Iniciar el servicio mysql 
+
+docker-compose up -d mysql 
+
+- Iniciar el servicio phpmyadmin 
+
+docker-compose up -d phpmyadmin 
+
+- Instalar el driver para Mysql 
+
+npm i --save mysql2
+
+# Migraciones en base de datos (Sequelize ORM)
+
+- Control de versiones en base de datos (migraciones)
+
+ejecutar los siguiente comandos para instalar "npm i sequelize-cli -D"  o "npm i sequelize-cli --save-dev"
+
+las migraciones se corren en modo terminal por ello es necesario
+que se espefique su propia configuracion de conexion 
+la cual lo realizamos en el archivo .sequelizerc
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Ver los logs 
+docker-compose logs -f mysql
 
 
 ## Referencias 

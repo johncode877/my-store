@@ -129,5 +129,6 @@ dist
 .yarn/install-state.gz
 .pnp.*
 postgres_data
+mysql_data
 
 

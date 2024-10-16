@@ -21,16 +21,41 @@ services:
     image: dpage/pgadmin4
     env_file: '.env'
     environment:
-       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
-       #- PGADMIN_DEFAULT_PASSWORD=/run/secrets/pgadmin_password
+       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}       
        - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
     ports:
        - 5050:80   
-    #secrets:
-    #   - pgadmin_password
+
+  mysql:
+    image: mysql:5
+    env_file: '.env'
+    environment:
+       - MYSQL_DATABASE=${DB_NAME_MS}
+       #- MYSQL_DATABASE=my_store
+       - MYSQL_USER=
+       #- MYSQL_ROOT_PASSWORD=/run/secrets/db_password_ms       
+       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD_MS}
+       - MYSQL_PORT=3306
+    ports:
+       - 0.0.0.0:3306:3306
+    volumes:    
+       - ./mysql_data:/var/lib/mysql
+#    secrets:
+#       - db_password_ms   
+
+  phpmyadmin:
+     image: phpmyadmin/phpmyadmin
+     env_file: '.env'
+     environment:
+       - MYSQL_ROOT_PASSWORD=/run/secrets/db_password_ms
+       - PMA_HOST=mysql # nombre del servicio mysql     
+     ports:
+       - 6060:80
+     secrets:
+       - db_password_ms  
+
 secrets:
    db_password_ms:
      file: db_password_ms.txt
-   pgadmin_password:
-     file: pgadmin_password.txt
-
+   
+    
