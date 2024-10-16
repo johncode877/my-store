@@ -31,7 +31,10 @@ setupModels(sequelize);
 
 // sincroniza el esquema y los modelos 
 // y crea las tablas 
-sequelize.sync({alter: true});
+
+// lo comentamos para poder hacerlo a traves 
+// de las migraciones
+//sequelize.sync({alter: true});
 
 module.exports = sequelize;
 

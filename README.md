@@ -166,6 +166,7 @@ docker-compose up -d phpmyadmin
 
 npm i --save mysql2
 
+
 # Migraciones en base de datos (Sequelize ORM)
 
 - Control de versiones en base de datos (migraciones)
@@ -176,9 +177,24 @@ las migraciones se corren en modo terminal por ello es necesario
 que se espefique su propia configuracion de conexion 
 la cual lo realizamos en el archivo .sequelizerc
 
+Desde la consola 
+
+npm run migrations:generate --name "create-user"
+
+sequelize a diferencia de otros frameworks , como laravel , django o typeorm
+no realiza migraciones por ti , si no que te genera un boilerplate(pieza de codigo) 
+para poder ingresar el codigo para hacer las migraciones 
 
 
+hay un comando que debe ser utilizado con cautela , ya que elimina 
+todas las migraciones que se hayan hecho 
 
+"migrations:delete": "sequelize-cli db:migrate:undo:all"
+
+eliminamos las tablas que se hayan creado previamente y luego 
+ejecutamos la migracion de creacion 
+
+npm run migrations:run
 
 
 
