@@ -162,6 +162,10 @@ docker-compose up -d mysql
 
 docker-compose up -d phpmyadmin 
 
+- Ver los logs 
+docker-compose logs -f mysql
+
+
 - Instalar el driver para Mysql 
 
 npm i --save mysql2
@@ -196,16 +200,26 @@ ejecutamos la migracion de creacion
 
 npm run migrations:run
 
+# Migraciones de alteracion (modificando una entidad)
+
+sync , no te permite hacer cambios en base de datos como en el caso 
+alter tables para añadir campos , esto si es posible 
+con las migraciones
+
+ejecutamos el siguiente comando para generar 
+el boilerplate para add-role
+
+npm run migrations:generate --name add-role
+
+ejecutamos el siguiente comando para ejecutar
+las migraciones desde el punto donde se quedo
+
+npm run migrations:run
 
 
 
 
 
-
-
-
-# Ver los logs 
-docker-compose logs -f mysql
 
 
 ## Referencias 
