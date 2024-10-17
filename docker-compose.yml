@@ -8,14 +8,16 @@ services:
     environment:
        - POSTGRES_DB=${DB_NAME_MS}
        - POSTGRES_USER=${DB_USER_MS}
-       - POSTGRES_PASSWORD=/run/secrets/db_password_ms
+       - POSTGRES_PASSWORD=${DB_PASSWORD_MS}
+#       - POSTGRES_PASSWORD=/run/secrets/db_password_ms
+
     ports:
        - 5433:5432
     # persiste la informacion en un volumen local
     volumes:
        - './postgres_data:/var/lib/postgresql/data'
-    secrets:
-       - db_password_ms
+#    secrets:
+#       - db_password_ms
 
   pgadmin: 
     image: dpage/pgadmin4
@@ -26,36 +28,36 @@ services:
     ports:
        - 5050:80   
 
-  mysql:
-    image: mysql:5
-    env_file: '.env'
-    environment:
-       - MYSQL_DATABASE=${DB_NAME_MS}
-       #- MYSQL_DATABASE=my_store
-       - MYSQL_USER=
-       #- MYSQL_ROOT_PASSWORD=/run/secrets/db_password_ms       
-       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD_MS}
-       - MYSQL_PORT=3306
-    ports:
-       - 0.0.0.0:3306:3306
-    volumes:    
-       - ./mysql_data:/var/lib/mysql
-#    secrets:
-#       - db_password_ms   
+#  mysql:
+#    image: mysql:5
+#    env_file: '.env'
+#    environment:
+#       - MYSQL_DATABASE=${DB_NAME_MS}
+#       #- MYSQL_DATABASE=my_store
+#       - MYSQL_USER=
+#       #- MYSQL_ROOT_PASSWORD=/run/secrets/db_password_ms       
+#       - MYSQL_ROOT_PASSWORD=${DB_PASSWORD_MS}
+#       - MYSQL_PORT=3306
+#    ports:
+#       - 0.0.0.0:3306:3306
+#    volumes:    
+#       - ./mysql_data:/var/lib/mysql
+##    secrets:
+##       - db_password_ms   
+#
+#  phpmyadmin:
+#     image: phpmyadmin/phpmyadmin
+#     env_file: '.env'
+#     environment:
+#       - MYSQL_ROOT_PASSWORD=/run/secrets/db_password_ms
+#       - PMA_HOST=mysql # nombre del servicio mysql     
+#     ports:
+#       - 6060:80
+#     secrets:
+#       - db_password_ms  
 
-  phpmyadmin:
-     image: phpmyadmin/phpmyadmin
-     env_file: '.env'
-     environment:
-       - MYSQL_ROOT_PASSWORD=/run/secrets/db_password_ms
-       - PMA_HOST=mysql # nombre del servicio mysql     
-     ports:
-       - 6060:80
-     secrets:
-       - db_password_ms  
-
-secrets:
-   db_password_ms:
-     file: db_password_ms.txt
+#secrets:
+#   db_password_ms:
+#     file: ./db_password_ms.txt
    
     

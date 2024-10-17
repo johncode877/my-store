@@ -1,4 +1,4 @@
-class OrderService {
+class OrdersService {
 
     constructor(){
     }
@@ -27,4 +27,4 @@ class OrderService {
   
   }
   
-  module.exports = OrderService;
+  module.exports = OrdersService;

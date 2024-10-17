@@ -48,6 +48,7 @@ class User extends Model {
         timestamps: false // evita que se cree el campo "updatedAt"
      }  
    }
+   
 
 }
 

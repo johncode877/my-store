@@ -224,6 +224,26 @@ y finalmente ejecutamos los comandos de  migraciones
 
 npm run migrations:run
 
+# Relaciones 1-1
+
+Sequelize tiene 2 metodos para expresar este tipo 
+de relaciones 
+
+A  ->  B
+HasOne -> B (B carga con la relacion)
+ej. Customer -> User
+
+BelongsTo -> A (A carga con la relacion)
+ej. Customer tenga un Usuario
+
+
+npm run migrations:generate --name create-customers
+
+npm run migrations:run
+
+
+
+
 
 
 ## Referencias 

@@ -6,10 +6,11 @@ const { config } = require('./../config/config');
 // index.js
 const setupModels = require('./../db/models');
 
-const USER = encodeURIComponent(config.dbUserMySql);
+const USER = encodeURIComponent(config.dbUser);
 const PASSWORD = encodeURIComponent(config.dbPassword);
 
 /*
+const USER = encodeURIComponent(config.dbUserMySql);
 const URI = `mysql://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPortMySql}/${config.dbName}`;
 console.log(URI);
 
