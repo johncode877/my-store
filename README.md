@@ -216,9 +216,13 @@ las migraciones desde el punto donde se quedo
 
 npm run migrations:run
 
+# Regresar a la bd Postgresql
 
+Eliminamos las tablas en postgres 
+Configuramos las conexion para apuntar nuevamente a postgres
+y finalmente ejecutamos los comandos de  migraciones
 
-
+npm run migrations:run
 
 
 
