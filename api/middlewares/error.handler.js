@@ -32,9 +32,14 @@ function ormErrorHandler(err, req, res, next) {
   console.log("ormErrorHandler");
     
   if (err instanceof ValidationError) {    
-      throw boom.conflict(err.errors[0].message)
-  } else {
-      next(err);
+      throw boom.conflict(err.errors[0].message);
+  } else {      
+      // 
+      if (err.name === "SequelizeForeignKeyConstraintError") {    
+        throw boom.badRequest(err.parent.detail);
+      } else {
+        next(err);
+      } 
   }
 
   /*    

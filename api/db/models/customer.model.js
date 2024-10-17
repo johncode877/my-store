@@ -33,6 +33,7 @@ const CustomerSchema = {
         allowNull: false, // todos los clientes deben tener un usuario        
         type: DataTypes.INTEGER,
         field: 'user_id',
+        unique: true,
         references: {
             model: USER_TABLE,
             key: 'id'

@@ -241,7 +241,35 @@ npm run migrations:generate --name create-customers
 
 npm run migrations:run
 
+# Resolviendo relaciones 1-1
 
+Generamos el boilerplate para el cambio unique (user_id)
+que hemos realizado en el modelo customer 
+
+npm run migrations:generate change-user-id
+
+si tienes datos ya generados no podras correr la migracion
+ya que rompen la regla 
+debes hacer un borrado manual de los registros que no cumplen 
+antes de correr la migracion
+
+npm run migrations:run
+
+resolvemos de forma anidada la otra entidad
+en este caso user , cuando consultamos por customer
+incluyendo el la consulta a nivel de service include:['user']
+
+ahora si queremos resolver a partir de user a customer 
+
+this.hasOne(models.Customer,{
+        as: 'customer',
+        foreignKey: 'userId'
+     });
+
+podemos crear en el mismo endpoint de customers
+crear usuarios , esto podemos realizarlo 
+incluyendo la seccion json en el request que 
+pertenece a user
 
 
 
