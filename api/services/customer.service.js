@@ -13,7 +13,7 @@ class CustomersService {
     async create(data){
 
         // codigo mas simplificado , aprovechando el mecanismo 
-        // de asociacion 
+        // de asociacion (crea el usuario y el customer a la vez)
         const newCustomer = await models.Customer.create(data,{include:['user']});
 
         /*

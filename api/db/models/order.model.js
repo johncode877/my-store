@@ -1,6 +1,6 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { CUSTOMER_TABLE } = require('./customer.model');
-const { ORDER_PRODUCT_TABLE,OrderProduct } = require('./order-product.model');
+const { ORDER_PRODUCT_TABLE, OrderProduct } = require('./order-product.model');
 
 const ORDER_TABLE = 'orders';
 
@@ -12,9 +12,9 @@ const OrderSchema = {
         primaryKey: true,
         type: DataTypes.INTEGER
     },
-    customerId: {        
-        field: 'customer_id',        
-        allowNull: false, 
+    customerId: {
+        field: 'customer_id',
+        allowNull: false,
         type: DataTypes.INTEGER,
         references: {
             model: CUSTOMER_TABLE,
@@ -29,30 +29,39 @@ const OrderSchema = {
         field: 'created_at',
         defaultValue: Sequelize.NOW,
     },
-
+    total: {
+        type: DataTypes.VIRTUAL,
+        get() {
+            // items es el nombre que puse a mi asociacion 
+            if (this.items.length > 0) {
+                return this.items.reduce((total, item) => {
+                    return total + (item.price * item.OrderProduct.amount);
+                }, 0);
+            }
+            return 0;
+        }
+    }
 }
 
 class Order extends Model {
 
-
     static associate(models) {
         // Una categoria puede tener muchos productos
         this.belongsTo(models.Customer, {
-            as: 'customer'});
+            as: 'customer'
+        });
 
         // especificamos con "through"
         // a traves de que tabla se va a 
         // resolver la relacion de muchos a muchos
         // entre Order y Product    
-        this.belongsToMany(models.Product,{
+        this.belongsToMany(models.Product, {
             as: 'items',
             through: models.OrderProduct,
             foreignKey: 'orderId',
             otherKey: 'productId'
-         });    
+        });
     }
-
-
 
     static config(sequelize) {
         return {

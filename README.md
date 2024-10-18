@@ -329,6 +329,14 @@ entonces debemos hacer la asociacion en ese modelo
 
 # Resolviendo relaciones M - N 
 
+A veces puede que tengamos la necesidad 
+de devolver un valor calculado en base a informacion
+de nuestras consultas , esto lo podemos realizar 
+en sequelize con un campo de tipo VIRTUAL 
+
+este metodo es recomendable para lista de productos
+pequeños @50 max , si es mucho mayor es mejor
+utilizar un query sql que realice el calculo
 
 
 
@@ -343,4 +351,7 @@ https://docs.docker.com/compose/how-tos/use-secrets/
 https://mgallego.gitlab.io/posts/docker-volumenes-de-datos/
 
 https://sequelize.org/
+
+- Uso de Scopes para ocultar ciertos datos sensibles
+https://dev.to/a0viedo/handling-sensitive-fields-with-sequelize-js-54lo
 
