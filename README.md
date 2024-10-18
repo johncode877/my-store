@@ -338,6 +338,15 @@ este metodo es recomendable para lista de productos
 pequeños @50 max , si es mucho mayor es mejor
 utilizar un query sql que realice el calculo
 
+# Paginacion 
+
+Limit: Límite de elementos que deseo traer en cada página.
+Offset: Apuntador, es decir, cuántos elementos quiero escapar.	
+
+Normalmente estos parametros son de tipo query
+
+
+
 
 
 ## Referencias 
