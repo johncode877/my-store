@@ -292,6 +292,31 @@ npm run migrations:generate products
 
 npm run migrations:run
 
+# Trabajando con ordenes de compra
+Un producto puede pertenecer a muchas ordenes de compra
+y una orden de compra puede tener muchos productos
+
+Products <-> Orders 
+
+Se resuelve mediante una relacion en sequelize denominada 
+"belongsToMany"
+
+Un cliente puede tener muchas ordenes 
+
+Products           Orders -> Client
+           Items   
+
+
+Generamos la migracion para el nuevo modelo creado de Ordenes
+
+npm run migrations:generate --name "create-order"
+
+npm run migrations:run 
+
+
+# Resolviendo relaciones M - N 
+
+
 
 ## Referencias 
 
