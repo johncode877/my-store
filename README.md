@@ -314,11 +314,29 @@ npm run migrations:generate --name "create-order"
 npm run migrations:run 
 
 
+# Relaciones M - N 
+
+Creamos el model para la tabla orderproduct
+luego generamos el boilerplate para la migracion
+
+npm run migrations:generate --name "order-product"
+
+npm run migrations:run
+
+Si se desea que la entidad "Order" tenga los detalles 
+de los productos a traves de la entidad "OrderProduct" 
+entonces debemos hacer la asociacion en ese modelo 
+
 # Resolviendo relaciones M - N 
 
 
 
+
 ## Referencias 
+
+https://bit.ly/3PiVBpI
+
+https://vertabelo.com/blog/many-to-many-relationship/#:~:text=A%20ternary%20relationship%20is%20when,of%20three%20columns,%20not%20two.
 
 https://docs.docker.com/compose/how-tos/use-secrets/
 

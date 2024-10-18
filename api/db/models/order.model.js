@@ -1,5 +1,6 @@
 const { Model, DataTypes, Sequelize } = require('sequelize');
 const { CUSTOMER_TABLE } = require('./customer.model');
+const { ORDER_PRODUCT_TABLE,OrderProduct } = require('./order-product.model');
 
 const ORDER_TABLE = 'orders';
 
@@ -38,6 +39,17 @@ class Order extends Model {
         // Una categoria puede tener muchos productos
         this.belongsTo(models.Customer, {
             as: 'customer'});
+
+        // especificamos con "through"
+        // a traves de que tabla se va a 
+        // resolver la relacion de muchos a muchos
+        // entre Order y Product    
+        this.belongsToMany(models.Product,{
+            as: 'items',
+            through: models.OrderProduct,
+            foreignKey: 'orderId',
+            otherKey: 'productId'
+         });    
     }
 
 
