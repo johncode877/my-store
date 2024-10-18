@@ -11,17 +11,6 @@ const router = express.Router();
 const service = new CategoryService();
 
 
-/*
-router.get('/:categoryId/products/:productId',(req,res) => {
-  const { categoryId,productId } = req.params;
-
-  res.json({
-     categoryId,
-     productId
-  });
-})
-*/
-
 router.get('/', async (req, res, next) => {
   try {
     const categories = await service.find();

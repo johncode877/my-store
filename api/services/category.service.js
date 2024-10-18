@@ -1,27 +1,40 @@
 
-
-class CategoriesService {
+const { models } = require('./../libs/sequelize');
+class CategoryService {
 
     constructor() {
     }
 
     async create(data) {
-        return data;
+        const newCategory = await models.Category.create(data);
+        return newCategory;
     }
 
     async find() {
-        return [];
+        const data = await models.Category.findAll();
+        return data;
     }
 
     async findOne(id) {
-        return { id };
+        const data = await models.Category.findByPk(id, {
+            include: ['products']
+        });
+
+        if (!data) {
+            throw boom.notFound('category not found');
+        }
+
+        return data;
     }
 
     async update(id, changes) {
-        return {
-            id,
-            changes,
-        };
+
+        const data = await models.Category.findByPk(id);
+        if (!data) {
+            throw boom.notFound('category not found');
+        }
+
+        data.update(changes);
     }
 
     async delete(id) {
@@ -29,4 +42,4 @@ class CategoriesService {
     }
 }
 
-module.exports = CategoriesService;
+module.exports = CategoryService;

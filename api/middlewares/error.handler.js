@@ -30,7 +30,7 @@ function boomErrorHandler(err, req, res, next) {
 
 function ormErrorHandler(err, req, res, next) {
   console.log("ormErrorHandler");
-    
+  /*  
   if (err instanceof ValidationError) {    
       throw boom.conflict(err.errors[0].message);
   } else {      
@@ -41,8 +41,8 @@ function ormErrorHandler(err, req, res, next) {
         next(err);
       } 
   }
-
-  /*    
+  */
+      
   if (err instanceof ValidationError) {
     res.status(409).json({
       statusCode: 409,
@@ -52,8 +52,7 @@ function ormErrorHandler(err, req, res, next) {
   } else { 
     next(err); 
   }
-  */
-
+  
 };
 
 
