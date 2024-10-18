@@ -271,7 +271,24 @@ crear usuarios , esto podemos realizarlo
 incluyendo la seccion json en el request que 
 pertenece a user
 
+# Relaciones 1 - N 
 
+Relacionaremos Products con Categories 
+Un producto pertenece a una categoria 
+una categoria puede estar asoaciada a muchos productos 
+
+           ->  
+categoria  ->   productos
+           ->  
+
+hasMany -> Products
+
+despues de crear los modelos a nivel de codigo 
+y las relaciones , nos toca generar las migraciones 
+
+npm run migrations:generate products
+
+npm run migratios:run
 
 
 ## Referencias 
