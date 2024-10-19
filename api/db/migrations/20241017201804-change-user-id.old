@@ -9,11 +9,11 @@ module.exports = {
       field: 'user_id',
       allowNull: false,      
       type: DataTypes.INTEGER,
-      unique: true,      
+      unique: true,  
     });
   },
 
   async down(queryInterface) {
-    // await queryInterface.dropTable(CUSTOMER_TABLE);
+     await queryInterface.dropTable(CUSTOMER_TABLE);
   }
 };

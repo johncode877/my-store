@@ -351,6 +351,28 @@ Normalmente estos parametros son de tipo query
 Se añade una validacion
 si se envia price_min , price_max tambien debe ser enviado
 
+# Deploy a Cloud 
+
+Hacemos cambios para configurar la url de la base de datos 
+En las Migraciones se recomienda mejor no usar el esquema
+en los scripts , si no mas bien el esquema que se tuvo en el 
+momento que se ejecuto la migracion
+
+npm run migrations:generate --name "create-tables"
+
+
+railway login
+
+railway status 
+
+- Ejecuta la migracion inicial
+railway run npx sequelize-cli db:migrate
+
+railway run npx sequelize-cli db:seed:all
+
+- Elimina toda la migracion realizada 
+railway run npx sequelize-cli db:migrate:undo:all
+
 
 ## Referencias 
 
@@ -366,4 +388,8 @@ https://sequelize.org/
 
 - Uso de Scopes para ocultar ciertos datos sensibles
 https://dev.to/a0viedo/handling-sensitive-fields-with-sequelize-js-54lo
+
+- Configurar pool con sequelize
+https://sequelize.org/docs/v6/other-topics/connection-pool/
+
 
