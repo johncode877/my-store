@@ -1,5 +1,5 @@
 'use strict';
-const { CUSTOMER_TABLE } = require('./../models/customer.model');
+const { CUSTOMER_TABLE } = require('../models/customer.model');
 const { DataTypes } = require('sequelize');
 
 /** @type {import('sequelize-cli').Migration} */

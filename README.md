@@ -370,6 +370,9 @@ railway run npx sequelize-cli db:migrate
 
 railway run npx sequelize-cli db:seed:all
 
+railway run npm run migrations:run
+
+
 - Elimina toda la migracion realizada 
 railway run npx sequelize-cli db:migrate:undo:all
 

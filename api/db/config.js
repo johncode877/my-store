@@ -16,6 +16,8 @@ module.exports = {
 }
 */
 
+console.log('url:'+config.dbUrl);
+
 module.exports = {
     development: {
         url: config.dbUrl,

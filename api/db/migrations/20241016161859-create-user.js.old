@@ -1,7 +1,7 @@
 'use strict';
 const { DataTypes, Sequelize } = require('sequelize');
-const { USER_TABLE } = require('./../models/user.model');
-
+const { USER_TABLE } = require('../models/user.model');
+const { CUSTOMER_TABLE } = require('../models/customer.model');
 
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
@@ -32,6 +32,9 @@ module.exports = {
   },
   // para realizar rollback de los cambios
   async down(queryInterface, Sequelize) {
+
+    await queryInterface.dropTable(CUSTOMER_TABLE);
+
     await queryInterface.dropTable(USER_TABLE);
   }
 };
