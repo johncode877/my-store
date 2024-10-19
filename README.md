@@ -346,7 +346,10 @@ Offset: Apuntador, es decir, cuántos elementos quiero escapar.
 Normalmente estos parametros son de tipo query
 
 
+# Filtrando precios con operadores
 
+Se añade una validacion
+si se envia price_min , price_max tambien debe ser enviado
 
 
 ## Referencias 
