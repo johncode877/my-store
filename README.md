@@ -376,6 +376,25 @@ railway run npm run migrations:run
 - Elimina toda la migracion realizada 
 railway run npx sequelize-cli db:migrate:undo:all
 
+Una vez que la migracion se logro realizar 
+guardamos los cambios y realizamos un push a la rama en git-hub
+para que Railway pueda desplegar el cambio
+
+
+# Recomendaciones en el deploy 
+
+Es mejor configurar que el despliegue
+se haga cuando se realicen cambios en la rama master 
+de git-hub
+
+En ese caso configuramos la variable NODE_ENV=production
+si estamos realizando cambios para probarlos en 
+desarrollo , configuramos al siguiente valor 
+NODE_ENV=dev
+
+
+
+
 
 ## Referencias 
 
@@ -395,4 +414,6 @@ https://dev.to/a0viedo/handling-sensitive-fields-with-sequelize-js-54lo
 - Configurar pool con sequelize
 https://sequelize.org/docs/v6/other-topics/connection-pool/
 
+- Despliegue en railway 
+https://dhimas-hary.medium.com/simple-node-express-postgres-deployment-with-railway-and-supabase-2ca41097c39f
 
