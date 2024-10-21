@@ -416,6 +416,16 @@ se recibe en minusculas en el codigo
 Cada vez que hagamos un cambio de variables de ambiente 
 debemos reiniciar nuestro servidor 
 
+# Hashing de contraseñas 
+
+Las contraseñas que almacenamos 
+en la base de datos , debemos guardarlo 
+de forma hasheada , para ello utilizaremos la libreria 
+
+npm i bcrypt
+
+
+
 
 
 ## Referencias 
