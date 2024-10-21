@@ -1,4 +1,4 @@
-const { config } = require('./../config/config');
+const { config } = require('./../config/configEnv');
 
 /*
 const USER = encodeURIComponent(config.dbUserMySql);
@@ -24,7 +24,7 @@ module.exports = {
         dialect: 'postgres',
     },
     production: {
-        url: config.dbUrl,
+        url: config.dbUrlProd,
         dialect: 'postgres',
         dialectOptions: {
             ssl: {

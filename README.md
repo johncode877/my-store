@@ -1,25 +1,25 @@
-# Creacion del proyecto
+# Creación del proyecto
 
-# inicializar el proyecto
+# Inicializar el proyecto
 npm init -y
 
-# inicializar el repositorio
+# Inicializar el repositorio
 git init 
 
-# creacion del archivo gitgnore
+# Creación del archivo gitgnore
 tomamos de referencia la pagina: https://www.toptal.com/developers/gitignore/
 
 touch .gitignore
 
-# configuracion del editor
+# Configuración del editor
 instalar el plugin EditorConfig for VS Code
 
 touch .editorconfig
 
-# configuracion de reglas de buenas practicas
+# Configuración de reglas de buenas prácticas
 touch .eslintrc.jsonnpm i nodemon eslint eslint-config-prettier eslint-plugin-prettier prettier -D
 
-# creamos el archivo de entrada
+# Creamos el archivo de entrada
 touch index.js
 
 # Configuraciones
@@ -88,7 +88,7 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 
 npm i cors 
 
-# Despliegue de la solucion 
+# Despliegue de la solución 
 
 -vercel 
 -render
@@ -200,7 +200,7 @@ ejecutamos la migracion de creacion
 
 npm run migrations:run
 
-# Migraciones de alteracion (modificando una entidad)
+# Migraciones de alteración (modificando una entidad)
 
 sync , no te permite hacer cambios en base de datos como en el caso 
 alter tables para añadir campos , esto si es posible 
@@ -338,7 +338,7 @@ este metodo es recomendable para lista de productos
 pequeños @50 max , si es mucho mayor es mejor
 utilizar un query sql que realice el calculo
 
-# Paginacion 
+# Paginación 
 
 Limit: Límite de elementos que deseo traer en cada página.
 Offset: Apuntador, es decir, cuántos elementos quiero escapar.	
@@ -393,6 +393,28 @@ desarrollo , configuramos al siguiente valor
 NODE_ENV=dev
 
 
+## Añadiendo autenticación
+
+# Configuración del proyecto
+Primero vamos a crear desde cero la bd
+para ellos ejecutamos:
+
+docker-compose up -d posgres
+
+docker-compose up -d pgadmin
+
+npm run migrations:run
+
+# Añadiendo el middleware de verificación
+
+Para pruebas vamos a crear un validador 
+para verificar que el request contenga la variable 
+de API en la cabecera 
+recordar que si esa variable esta en mayusculas o minusculas 
+se recibe en minusculas en el codigo 
+
+Cada vez que hagamos un cambio de variables de ambiente 
+debemos reiniciar nuestro servidor 
 
 
 
@@ -416,4 +438,7 @@ https://sequelize.org/docs/v6/other-topics/connection-pool/
 
 - Despliegue en railway 
 https://dhimas-hary.medium.com/simple-node-express-postgres-deployment-with-railway-and-supabase-2ca41097c39f
+
+- Despliegue de nodejs app en EC2 Aws
+https://medium.com/@siddhantshaha28/step-by-step-guide-to-deploy-a-node-js-server-on-amazon-ec2-72fd48f89cbd
 

@@ -1,6 +1,6 @@
 const { Sequelize } = require('sequelize');
 
-const { config } = require('./../config/config');
+const { config } = require('../config/configEnv');
 
 // no lleva llaves porque esta definido en el archivo 
 // index.js
@@ -20,12 +20,17 @@ const sequelize = new Sequelize(URI,{
 */
 
 
+let mydbUrl=config.dbUrl;
+
+console.log("mydbUrl:"+mydbUrl);
+
 const options = {
    dialect: 'postgres',
-   logging: config.isProd ? false : true,
+   logging: config.isProd ? false : true,   
 }
 
 if (config.isProd) {
+   mydbUrl=config.dbUrlProd;
    options.dialectOptions = {
       ssl: {
          rejectUnauthorized: false
@@ -33,7 +38,7 @@ if (config.isProd) {
    }
 }
 
-const sequelize = new Sequelize(config.dbUrl, options);
+const sequelize = new Sequelize(mydbUrl, options);
 
 setupModels(sequelize);
 
