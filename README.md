@@ -424,6 +424,13 @@ de forma hasheada , para ello utilizaremos la libreria
 
 npm i bcrypt
 
+# Implemetando login con Passport.js - Capa de Autenticacion
+
+Existen muchas estragegias 
+
+npm i passport passport-local 
+
+
 
 
 

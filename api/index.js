@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const routerApi = require('./routes');
+const passport = require("./utils/auth");
 
 const { checkApiKey } = require('./middlewares/auth.handler');
 
@@ -30,6 +31,10 @@ const options = {
 
 app.use(cors(options));
 
+app.use(passport.initialize({ session: false }));
+
+
+
 app.get('/api',(req,res) => {
   res.send('hola mi server en express');
 })
@@ -42,6 +47,7 @@ app.get('/api/nueva-ruta',
 
 
 routerApi(app);
+
 
 // se especifica los middleware
 // que usara la aplicacion luego de
