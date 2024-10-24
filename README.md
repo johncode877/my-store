@@ -435,6 +435,10 @@ npm i passport passport-local
 
 npm i jsonwebtoken
 
+# Generar JWT en el servicio
+
+El valor configurado en la variable de entorno JWT_SECRET debe ser mantenido 
+de manera segura
 
 
 ## Referencias 
