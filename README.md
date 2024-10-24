@@ -431,7 +431,9 @@ Existen muchas estragegias
 npm i passport passport-local 
 
 
+# Usando Json Web Token (JWT)
 
+npm i jsonwebtoken
 
 
 
