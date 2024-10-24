@@ -445,9 +445,21 @@ de manera segura
 
 npm i passport-jwt
 
+# Gestion/Control de roles
+
+Debemos controlar quien puede tener acceso a nuestras apis 
+esto lo podemos realizar con el control de roles 
+
+podemos utilizar otras librerias para gestionar los 
+permisos
+
+npm i accesscontrol
+
+
 
 
 ## Referencias 
+
 
 https://bit.ly/3PiVBpI
 
@@ -471,3 +483,6 @@ https://dhimas-hary.medium.com/simple-node-express-postgres-deployment-with-rail
 - Despliegue de nodejs app en EC2 Aws
 https://medium.com/@siddhantshaha28/step-by-step-guide-to-deploy-a-node-js-server-on-amazon-ec2-72fd48f89cbd
 
+
+- Vulnerabilidades 
+https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/
