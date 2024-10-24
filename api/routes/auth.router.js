@@ -1,39 +1,28 @@
 const express = require('express');
-const { config } = require('./../config/configEnv');
 const passport = require('passport');
 const router = express.Router();
-const jwt = require('jsonwebtoken');
+const JwtService = require('./../services/jwt.service');
 
+const service = new JwtService();
 
-
-router.post('/login', 
-  passport.authenticate('local',{session:false}),
+router.post('/login',
+  passport.authenticate('local', { session: false }),
   async (req, res, next) => {
-  try {    
+    try {
 
-    const user = req.user;
-    const secret = config.jwtSecret;    
-    
-    const jwtConfig = {      
-      expiresIn: '1800000',// 10 minutos en milisegundos
-    };
+      const user = req.user;
 
-    const payload = {
-      sub: user.id ,
-      role: user.role
-    };
-    
-    const token = jwt.sign(payload,secret,jwtConfig);
+      const token = await service.generateToken(user);
 
-    res.json({
-      user,
-      token
-    });
+      res.json({
+        user,
+        token
+      });
 
-  } catch (error) {
-    next(error);
-  }
-});
+    } catch (error) {
+      next(error);
+    }
+  });
 
 
 module.exports = router;

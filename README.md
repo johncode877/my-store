@@ -441,6 +441,12 @@ El valor configurado en la variable de entorno JWT_SECRET debe ser mantenido
 de manera segura
 
 
+# Protección de rutas
+
+npm i passport-jwt
+
+
+
 ## Referencias 
 
 https://bit.ly/3PiVBpI

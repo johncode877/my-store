@@ -1,15 +1,13 @@
 
-
 const express = require('express');
-
+const password = require('passport')
 const CategoryService = require('./../services/category.service');
 const validatorHandler = require('./../middlewares/validator.handler');
 const { createCategorySchema, updateCategorySchema, getCategorySchema } = require('./../schemas/category.schema');
-
+const passport = require('passport');
 
 const router = express.Router();
 const service = new CategoryService();
-
 
 router.get('/', async (req, res, next) => {
   try {
@@ -35,6 +33,7 @@ router.get('/:id',
 
 
 router.post('/',
+  passport.authenticate('jwt', { session: false }), // usa strategy jwt y sin manejo de sesion 
   validatorHandler(createCategorySchema, 'body'),
   async (req, res, next) => {
     try {
