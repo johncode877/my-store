@@ -57,6 +57,16 @@ class CustomersService {
         return model;
     }
 
+    async findOneByUser(userId) {
+        const model = await models.Customer.findOne({
+            where: {userId}
+        });
+        if (!model) {
+          throw boom.notFound('customer not found'); 
+        }
+        return model;
+    }
+
     async update(id, changes) {
         const model = await this.findOne(id);
         const rta = await model.update(changes); 

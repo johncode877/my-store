@@ -1,8 +1,10 @@
 const express = require('express');
 const OrderService = require('../services/order.service')
-
+const CustomerService = require('../services/customer.service')
+const passport = require('passport');
 const router = express.Router();
-const service = new OrderService();
+const orderService = new OrderService();
+const customerService = new CustomerService();
 
 const validatorHandler = require('../middlewares/validator.handler');
 const { getOrderSchema, createOrderSchema,addItemSchema } =
@@ -14,7 +16,7 @@ router.get('/:id',
   async (req, res, next) => {
     try {
       const { id } = req.params;
-      const model = await service.findOne(id);
+      const model = await orderService.findOne(id);
       res.json(model);
     } catch (error) {
       next(error);
@@ -23,12 +25,20 @@ router.get('/:id',
 );
 
 router.post('/',
-  validatorHandler(createOrderSchema, 'body'),
+  passport.authenticate('jwt', { session: false }),
+  //validatorHandler(createOrderSchema, 'body'),
   async (req, res, next) => {
     try {
       const body = req.body;
-      const model = await service.create(body);
-      res.status(201).json(model);
+      const payload = req.user;
+
+      const customer = await customerService.findOneByUser(payload.sub);
+      
+      const order = await orderService.create({
+        ...body,
+        customerId: customer.id
+      });
+      res.status(201).json(order);
     } catch (error) {
       next(error);
     }
@@ -42,7 +52,7 @@ router.post('/:id/products',
     try {
       const { id } = req.params;
       const body = req.body;      
-      const model = await service.addItem(id,body);
+      const model = await orderService.addItem(id,body);
       res.status(201).json(model);
     } catch (error) {
       next(error);
