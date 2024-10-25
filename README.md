@@ -457,6 +457,34 @@ npm i accesscontrol
 
 # Obteniendo órdenes del perfil
 
+Utilizamos la informacion del identificador del usaurio 
+que viene en el token para poder utilizarlo en 
+las consultas de ordenes 
+
+# Manejo de la autenticación desde el cliente
+
+Hay ciertas consideraciones que se deben tener 
+en cuenta cuando se maneja la autenticacion desde 
+el cliente (web o movil)
+1) realizar un login y almacenar el estado de logeo
+2) guardar el token en una cookie , ya que debemos 
+   utilizarla en todas las llamadas sucesivas que  
+   realicemos a las apis en nuestra aplicacion cliente
+3) Implementar un esquema para revalidar el token 
+   a traves del refresh token
+
+# Envio de correos
+
+Cuando en nuestra aplicacion queremos proveer 
+de un mecanismo para la recuperacion de contraseñas
+podemos enviarselas a traves de correos 
+esto lo implementaremos usando nodemailer
+
+https://support.google.com/accounts/answer/185833?hl=es
+
+npm i nodemailer
+
+
 
 
 ## Referencias 
