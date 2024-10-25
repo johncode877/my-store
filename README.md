@@ -484,6 +484,9 @@ https://support.google.com/accounts/answer/185833?hl=es
 
 npm i nodemailer
 
+# Implementando el envío de emails
+
+
 
 
 
