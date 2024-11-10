@@ -487,7 +487,12 @@ npm i nodemailer
 # Implementando el envío de emails
 
 
+# Despliegue de updates 
 
+no es necesario incluir el archivo .env 
+para realizar el despliegue 
+las variables de entorno deben ser 
+creadas en el proveedor de la nube
 
 
 ## Referencias 
